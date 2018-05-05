@@ -3,11 +3,10 @@
     padding: 0;
     list-style: none;
 }
-.loginForm{
-    margin-top:30vh;
-}
 .jumbotron {
-    background-color: #696969;
     height: 100vh;
     margin-bottom: 0px;
+}
+#login{
+    padding-left:  15px;
 }
