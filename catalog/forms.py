@@ -20,3 +20,7 @@ class RenewBookForm(forms.Form):
 
         # Remember to always return the cleaned data.
         return data
+
+
+class InputLoginForm(forms.Form):
+    field = forms.CharField(widget=forms.TextInput(attrs={'class': 'test'}))
