@@ -10,7 +10,9 @@
 
     <!-- Add additional CSS in static file -->
     {% load static %}
+    <script type="text/javascript" src="{% static 'js/bootstrap-arrows.js' %}"></script>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-arrows.css' %}" />
 </head>
 
 <body>
@@ -29,4 +31,5 @@
         </div>
     </div>
 </body>
+<script> $('.arrow, [class^=arrow-]').bootstrapArrows(); </script>
 </html>

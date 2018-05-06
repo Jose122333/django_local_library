@@ -1,6 +1,52 @@
 from django.shortcuts import render
-from .models import Book, Author, BookInstance, Genre
+from .models import Book, Author, BookInstance, Genre, ITOperation, Document
 from django.contrib.auth.decorators import login_required
+
+from .forms import DocumentForm
+from django.shortcuts import render_to_response
+from django.template import RequestContext
+from django.http import HttpResponseRedirect
+
+def list(request):
+    # Handle file upload
+    if request.method == 'POST':
+        form = DocumentForm(request.POST, request.FILES)
+        if form.is_valid():
+            newdoc = Document(docfile = request.FILES['docfile'])
+            newdoc.save()
+
+            # Redirect to the document list after POST
+            return HttpResponseRedirect(reverse('list'))
+    else:
+        form = DocumentForm() # A empty, unbound form
+
+    # Load documents for the list page
+    documents = Document.objects.all()
+
+    # Render list page with the documents and the form
+    return render(
+        request,
+        'catalog/list.html',
+        {'documents': documents, 'form': form}
+    )
+
+
+def dFogIT(request):
+
+    uep = ITOperation.objects.all()[0]
+
+
+    # Render list page with the documents and the form
+    return render(
+        request,
+        'catalog/dfogit.html',
+        context={'ITOperation':uep}, # num_visits appended
+            )
+
+
+
+
+
 
 @login_required
 def index(request):
@@ -107,5 +153,3 @@ class AuthorUpdate(UpdateView):
 class AuthorDelete(DeleteView):
     model = Author
     success_url = reverse_lazy('authors')
-
-    

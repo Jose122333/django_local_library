@@ -1,0 +1,16 @@
+{% extends "base_login.html" %}
+{% block content %}
+
+{% if ITOperation %}
+
+    <span class='arrow'></span>
+    <ul>
+        <li><a href="{{ ITOperation.utilities.url }}">{{ ITOperation.utilities.name }}</a></li>
+        <li><a href="{{ ITOperation.humanCapital.url }}">{{ ITOperation.humanCapital.name }}</a></li>
+        <li><a href="{{ ITOperation.assets.url }}">{{ ITOperation.assets.name }}</a></li>
+    </ul>
+{% else %}
+    <p>No documents.</p>
+{% endif %}
+
+{% endblock %}

@@ -24,3 +24,10 @@ class RenewBookForm(forms.Form):
 
 class InputLoginForm(forms.Form):
     field = forms.CharField(widget=forms.TextInput(attrs={'class': 'test'}))
+
+
+class DocumentForm(forms.Form):
+    docfile = forms.FileField(
+        label='Select a file',
+        help_text='max. 42 megabytes'
+    )

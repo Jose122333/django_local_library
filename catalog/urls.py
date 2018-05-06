@@ -11,4 +11,6 @@ urlpatterns = [
     path('author/create/', views.AuthorCreate.as_view(), name='author_create'),
     path('author/<int:pk>/update/', views.AuthorUpdate.as_view(), name='author_update'),
     path('author/<int:pk>/delete/', views.AuthorDelete.as_view(), name='author_delete'),
+    path('list/', views.list, name='list'),
+    path('dfogit/', views.dFogIT, name='dFogIT'),
 ]

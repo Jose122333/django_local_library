@@ -94,7 +94,6 @@ class BookInstance(models.Model):
         #return '%s (%s)' % (self.id,self.book.title)
         return '{0} ({1})'.format(self.id,self.book.title)
 
-
 class Author(models.Model):
     """
     Model representing an author.
@@ -119,3 +118,23 @@ class Author(models.Model):
         String for representing the Model object.
         """
         return '{0}, {1}'.format(self.last_name,self.first_name)
+
+import os
+class ITOperation(models.Model):
+    """docstring for ITOperation."""
+    utilities = models.FileField(upload_to='documents/%Y/%m/%d')
+    humanCapital = models.FileField(upload_to='documents/%Y/%m/%d')
+    assets = models.FileField(upload_to='documents/%Y/%m/%d')
+
+    def __str__(self):
+        """
+        String for representing the Model object (in Admin site etc.)
+        """
+        return 'ITOperation'
+
+
+
+
+
+class Document(models.Model):
+    docfile = models.FileField(upload_to='documents/%Y/%m/%d')
