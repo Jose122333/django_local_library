@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Book, Author, BookInstance, Genre, ITOperation, Document
+from .models import Book, Author, BookInstance, Genre, ITOperation, ITManagement,ITGovernance, Document
 from django.contrib.auth.decorators import login_required
 
 from .forms import DocumentForm
@@ -30,17 +30,21 @@ def list(request):
         {'documents': documents, 'form': form}
     )
 
-
+@login_required
 def dFogIT(request):
 
-    uep = ITOperation.objects.all()[0]
+    ops = ITOperation.objects.all()[0]
+    manag = ITManagement.objects.all()[0]
+    gov = ITGovernance.objects.all()[0]
 
 
     # Render list page with the documents and the form
     return render(
         request,
         'catalog/dfogit.html',
-        context={'ITOperation':uep}, # num_visits appended
+        context={'ITOperation':ops,
+                'ITManagement':manag,
+                'ITGovernance':gov}
             )
 
 

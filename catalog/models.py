@@ -126,12 +126,45 @@ class ITOperation(models.Model):
     humanCapital = models.FileField(upload_to='documents/%Y/%m/%d')
     assets = models.FileField(upload_to='documents/%Y/%m/%d')
 
+    class Meta:
+            permissions = (("see_itoperation", "Ver la capa de operación"),)
+
     def __str__(self):
         """
         String for representing the Model object (in Admin site etc.)
         """
         return 'ITOperation'
 
+
+class ITManagement(models.Model):
+    """docstring for ITManagement."""
+    projects = models.FileField(upload_to='documents/%Y/%m/%d')
+    businessProcesses = models.FileField(upload_to='documents/%Y/%m/%d')
+    services = models.FileField(upload_to='documents/%Y/%m/%d', blank=True)
+
+    class Meta:
+            permissions = (("see_itmanagement", "Ver la capa de gestión"),)
+
+    def __str__(self):
+        """
+        String for representing the Model object (in Admin site etc.)
+        """
+        return 'ITManagement'
+
+class ITGovernance(models.Model):
+    """docstring for ITGovernance."""
+    direction = models.FileField(upload_to='documents/%Y/%m/%d')
+    evaluation = models.FileField(upload_to='documents/%Y/%m/%d')
+    monitorization = models.FileField(upload_to='documents/%Y/%m/%d', blank=True)
+
+    class Meta:
+            permissions = (("see_itgovernance", "Ver la capa de governanza"),)
+
+    def __str__(self):
+        """
+        String for representing the Model object (in Admin site etc.)
+        """
+        return 'ITGovernance'
 
 
 

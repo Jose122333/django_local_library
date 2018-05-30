@@ -1,9 +1,83 @@
-{% extends "base_login.html" %}
+{% extends "base_generic.html" %}
 {% block content %}
 
-{% if ITOperation %}
+<table class="table table-responsive myTable">
+  <tbody>
+    {% if perms.catalog.see_itgovernance and ITGovernance %}
+    <tr>
+      <td class="fit warning">
+        <a href="{{ itgovernance.direction.url }}">Dirección </a>
+      </td>
+      <td class="fit myArrow"><span class='arrow' data-angle='90'></span></td>
+      <td class="fit warning"><a href="{{ itgovernance.evaluation.url }}">Evaluación</a></td>
+      <td class="fit myArrow" ><span class='arrow-inverse' data-angle='90'></span></td>
+      <td class="fit warning">
+        {% if itgovernance.monitorization %}
+        <a  href="{{ itgovernance.monitorization.url }}">Monitorización</a>
+            {% else %}
+        <p>Servicios</p>
+        {% endif %}
+        </td>
+    </tr>
+    <tr class="onlyRow">
+      <td class="fit myArrow"><span class='arrow-warning-large'></span></td>
+      <td class="fit myArrow"></td>
+      <td class="fit myArrow" ><span class='arrow-warning-large'></span></td>
+      <td class="fit myArrow"></td>
+      <td class="fit myArrow"><span class='arrow-warning-large'></span></td>
+    </tr>
+    {% endif %}
+    {% if perms.catalog.see_itmanagement and ITManagement %}
+    <tr>
+      <td class="fit success">
+        <a href="{{ ITManagement.projects.url }}">Proyectos </a>
+      </td>
+      <td class="fit myArrow"><span class='arrow' data-angle='90'></span></td>
+      <td class="fit success"><a href="{{ ITManagement.businessProcesses.url }}">Procesos de negocio</a></td>
+      <td class="fit myArrow" ><span class='arrow-inverse' data-angle='90'></span></td>
+      <td class="fit success">
+        {% if ITManagement.services %}
+        <a  href="{{ ITManagement.services.url }}">Servicios</a>
+            {% else %}
+        <p>Servicios</p>
+        {% endif %}
+        </td>
+    </tr>
+    <tr class="onlyRow">
+      <td class="fit myArrow"><span class='arrow-success-large'></span></td>
+      <td class="fit myArrow"></td>
+      <td class="fit myArrow" ><span class='arrow-success-large'></span></td>
+      <td class="fit myArrow"></td>
+      <td class="fit myArrow"><span class='arrow-success-large'></span></td>
+    </tr>
+    {% endif %}
+    {% if perms.catalog.see_itoperation and ITOperation %}
+    <tr>
+      <td class="fit info">
+        <a href="{{ ITOperation.utilities.url }}">Productos Básicos </a>
+      </td>
+      <td class="fit myArrow">
+        <a href="{{ ITOperation.humanCapital.url }}">
+        <span class='arrow' data-angle='90'></span>
+      </a>
+      </td>
+      <td class="fit info"><a href="{{ ITOperation.humanCapital.url }}">Personal</a></td>
+      <td class="fit myArrow" ><span class='arrow-inverse' data-angle='90'></span></td>
+      <td class="fit info"><a href="{{ ITOperation.assets.url }}">Activos</a></td>
+    </tr>
+    {% endif %}
+  </tbody>
+</table>
 
-    <span class='arrow'></span>
+
+
+
+
+
+<!-- ESTO ES PARA USAR LOS PERMISOS Y TAL -->
+<!-- {% if ITOperation %} -->
+
+    <!-- <span class='arrow'></span>
     <ul>
         <li><a href="{{ ITOperation.utilities.url }}">{{ ITOperation.utilities.name }}</a></li>
         <li><a href="{{ ITOperation.humanCapital.url }}">{{ ITOperation.humanCapital.name }}</a></li>
@@ -11,6 +85,6 @@
     </ul>
 {% else %}
     <p>No documents.</p>
-{% endif %}
+{% endif %} -->
 
 {% endblock %}
