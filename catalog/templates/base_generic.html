@@ -22,11 +22,18 @@
     <div class="container-fluid">
 
         <div class="row">
-            <div class="col-sm-2">
+            <div class="sidebar-nav col-sm-2">
                 {% block sidebar %}
                 {% if user.is_authenticated %}
-                    <li>User: {{ user.get_username }}</li>
+                    <li><a>User logged: {{ user.get_username }}</a></li>
                     <li><a href="{% url 'login'%}">Logout</a></li>
+                    <ul class="leyenda list-group">
+                      <li class="list-group-item"><h3>LEYENDA</h1></li>
+                      <li class="list-group-item list-group-item-danger">Capa de estrategia</li>
+                      <li class="list-group-item list-group-item-warning">Capa de gobernanza</li>
+                      <li class="list-group-item list-group-item-success">Capa de gestión</li>
+                      <li class="list-group-item list-group-item-info">Capa de operación</li>
+                    </ul>
                 {% else %}
                     <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
                 {% endif %}

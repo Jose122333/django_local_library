@@ -6,59 +6,129 @@
   <tbody>
     {% if perms.catalog.see_corpgovernance and CorpGovernance %}
     <tr>
-      <td title = "Doble click para editar el nombre" class="fit danger">
-        <a data-toggle="tooltip" title="Click para verlo en el navegador" download target="_blank" href="{{ CorpGovernance.structuresFile.url }}">{{ CorpGovernance.structuresName }} </a>
-        <span title = "Doble click para editar el nombre" class="edit glyphicon glyphicon-pencil" aria-hidden="true"></span>
-        <span title = "Click para descargar" class="download glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+      <td  class="fit danger">
+        <a target="_blank" data-toggle="tooltip"   href="{{ CorpGovernance.structuresFile.url }}">{{ CorpGovernance.structuresName }} </a>
+        <!-- <span  class="edit glyphicon glyphicon-pencil" aria-hidden="true"></span>
+        <span title = "Click para descargar" class="download glyphicon glyphicon-download-alt" aria-hidden="true"></span> -->
       </td>
-      <td title = "Doble click para editar el nombre" class="fit myArrow"><span class='arrow' data-angle='90'></span></td>
-      <td title = "Doble click para editar el nombre" class="fit danger">
-        <a data-toggle="tooltip" title="Click para verlo en el navegador" downloadtarget="_blank" href="{{ CorpGovernance.applicationsFile.url }}">{{ CorpGovernance.applicationsName }} </a>
-          <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+      <td  class="fit myArrow">
+        {% if CorpGovernance.arrow2Name %}
+        <p>{{ CorpGovernance.arrow2Name }}</p>
+        {% endif %}
+        <a data-toggle="tooltip"   target="_blank" {% if CorpGovernance.arrow2File %} href="{{ CorpGovernance.arrow2File.url }}" {% endif %}>
+          <span class='arrow' data-angle='90'></span>
+        </a>
       </td>
-      <td title = "Doble click para editar el nombre" class="fit myArrow" ><span class='arrow-inverse' data-angle='90'></span></td>
-      <td title = "Doble click para editar el nombre" class="fit danger">
+      <td  class="fit danger">
+        <a data-toggle="tooltip"   target="_blank" href="{{ CorpGovernance.applicationsFile.url }}">{{ CorpGovernance.applicationsName }} </a>
+        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+      </td>
+      <td  class="fit myArrow" >
+        {% if CorpGovernance.arrow4Name %}
+        <p>{{ CorpGovernance.arrow4Name }}</p>
+        {% endif %}
+        <a data-toggle="tooltip"   target="_blank" {% if CorpGovernance.arrow4File %} href="{{ CorpGovernance.arrow4File.url }}" {% endif %}>
+          <span class='arrow-inverse' data-angle='90'></span>
+        </a>
+      </td>
+      <td  class="fit danger">
         {% if itgovernance.valueFile %}
         <a  href="{{ CorpGovernance.valueFile.url }}">{{ CorpGovernance.valueName }} </a>
-            {% else %}
-        <p>Valor </p>
+        {% else %}
+        <p>{{ CorpGovernance.valueName }} </p>
         {% endif %}
-        </td>
+      </td>
     </tr>
     <tr class="onlyRow">
-      <td title = "Doble click para editar el nombre" class="fit myArrow"><span class='arrow-danger-large' data-angle='180'></span></td>
-      <td title = "Doble click para editar el nombre" class="fit myArrow"></td>
-      <td title = "Doble click para editar el nombre" class="fit myArrow" ><span class='arrow-danger-large'></span></td>
-      <td title = "Doble click para editar el nombre" class="fit myArrow"></td>
-      <td title = "Doble click para editar el nombre" class="fit myArrow"><span class='arrow-danger-large'></span></td>
+      <td  class="fit myArrow">
+        {% if CorpGovernance.arrow1Name %}
+        <p>{{ CorpGovernance.arrow1Name }}</p>
+        {% endif %}
+        <a data-toggle="tooltip"   target="_blank" {% if CorpGovernance.arrow1File %} href="{{ CorpGovernance.arrow1File.url }}" {% endif %}>
+          <span class='arrow-danger-large' data-angle='180'></span>
+        </a>
+      </td>
+      <td  class="fit myArrow"></td>
+      <td  class="fit myArrow" >
+        {% if CorpGovernance.arrow3Name %}
+        <p>{{ CorpGovernance.arrow3Name }}</p>
+        {% endif %}
+        <a data-toggle="tooltip" target="_blank" {% if CorpGovernance.arrow3File %} href="{{ CorpGovernance.arrow3File.url }}" {% endif %}>
+          <span class='arrow-danger-large'></span>
+        </a>
+      </td>
+      <td  class="fit myArrow"></td>
+      <td  class="fit myArrow">
+        {% if CorpGovernance.arrow5Name %}
+        <p>{{ CorpGovernance.arrow5Name }}</p>
+        {% endif %}
+        <a data-toggle="tooltip" target="_blank" {% if CorpGovernance.arrow5File %} href="{{ CorpGovernance.arrow5File.url }}" {% endif %}>
+          <span class='arrow-danger-large'></span>
+        </a>
+      </td>
     </tr>
     {% else %}
     <tr>
-      <td><span class="label label-warning">SIN PERMISOS PARA VER LA CAPA CORPORATIVA CONTACTE CON EL ADMINISTRADOR DEL SITE</span></td>
+      <td class="fit"><span class="label label-warning">SIN PERMISOS PARA VER LA CAPA CORPORATIVA CONTACTE CON EL ADMINISTRADOR DEL SITE</span></td>
     </tr>
     {% endif %}
     {% if perms.catalog.see_itgovernance and ITGovernance %}
     <tr>
-      <td title = "Doble click para editar el nombre" class="fit warning">
-        <a data-toggle="tooltip" title="Click para verlo en el navegador" downloadtarget="_blank" href="{{ ITGovernance.directionFile.url }}">{{ ITGovernance.directionName }} </a>
+      <td  class="fit warning">
+        <a data-toggle="tooltip"   target="_blank" href="{{ ITGovernance.directionFile.url }}">{{ ITGovernance.directionName }} </a>
       </td>
-      <td title = "Doble click para editar el nombre" class="fit myArrow"><span class='arrow' data-angle='270'></span></td>
-      <td title = "Doble click para editar el nombre" class="fit warning"><a data-toggle="tooltip" title="Click para verlo en el navegador" downloadtarget="_blank" href="{{ ITGovernance.evaluationFile.url }}">{{ ITGovernance.evaluationName }}</a></td>
-      <td title = "Doble click para editar el nombre" class="fit myArrow" ><span class='arrow-inverse' data-angle='270'></span></td>
-      <td title = "Doble click para editar el nombre" class="fit warning">
+      <td  class="fit myArrow">
+        {% if ITGovernance.arrow2Name %}
+        <p>{{ ITGovernance.arrow2Name }}</p>
+        {% endif %}
+        <a data-toggle="tooltip"   target="_blank" {% if ITGovernance.arrow2File %} href="{{ ITGovernance.arrow2File.url }}" {% endif %}>
+          <span class='arrow' data-angle='270'></span>
+        </a>
+      </td>
+      <td  class="fit warning"><a data-toggle="tooltip"   target="_blank" href="{{ ITGovernance.evaluationFile.url }}">{{ ITGovernance.evaluationName }}</a></td>
+      <td  class="fit myArrow" >
+        {% if ITGovernance.arrow4Name %}
+        <p>{{ ITGovernance.arrow4Name }}</p>
+        {% endif %}
+        <a data-toggle="tooltip"   target="_blank" {% if ITGovernance.arrow4File %} href="{{ ITGovernance.arrow4File.url }}" {% endif %}>
+          <span class='arrow-inverse' data-angle='270'></span>
+        </a>
+      </td>
+      <td  class="fit warning">
         {% if itgovernance.monitorizationFile %}
         <a  href="{{ ITGovernance.monitorizationFile.url }}">{{ ITGovernance.monitorizationName }}</a>
-            {% else %}
+        {% else %}
         <p>{{ ITGovernance.monitorizationName }}</p>
         {% endif %}
-        </td>
+      </td>
     </tr>
     <tr class="onlyRow">
-      <td title = "Doble click para editar el nombre" class="fit myArrow"><span class='arrow-warning-large' data-angle='180'></span></td>
-      <td title = "Doble click para editar el nombre" class="fit myArrow"></td>
-      <td title = "Doble click para editar el nombre" class="fit myArrow" ><span class='arrow-warning-large'></span></td>
-      <td title = "Doble click para editar el nombre" class="fit myArrow"></td>
-      <td title = "Doble click para editar el nombre" class="fit myArrow"><span class='arrow-warning-large'></span></td>
+      <td  class="fit myArrow">
+        {% if ITGovernance.arrow1Name %}
+        <p>{{ ITGovernance.arrow1Name }}</p>
+        {% endif %}
+        <a data-toggle="tooltip"   target="_blank" {% if ITGovernance.arrow1File %} href="{{ ITGovernance.arrow1File.url }}" {% endif %}>
+          <span class='arrow-warning-large' data-angle='180'></span>
+        </a>
+      </td>
+      <td  class="fit myArrow"></td>
+      <td  class="fit myArrow" >
+        {% if ITGovernance.arrow3Name %}
+        <p>{{ ITGovernance.arrow3Name }}</p>
+        {% endif %}
+        <a data-toggle="tooltip" target="_blank" {% if ITGovernance.arrow3File %} href="{{ ITGovernance.arrow3File.url }}" {% endif %}>
+          <span class='arrow-warning-large'></span>
+        </a>
+      </td>
+      <td  class="fit myArrow"></td>
+      <td  class="fit myArrow">
+        {% if ITGovernance.arrow5Name %}
+        <p>{{ ITGovernance.arrow5Name }}</p>
+        {% endif %}
+        <a data-toggle="tooltip" target="_blank" {% if ITGovernance.arrow5File %} href="{{ ITGovernance.arrow5File.url }}" {% endif %}>
+          <span class='arrow-warning-large'></span>
+        </a>
+      </td>
     </tr>
     {% else %}
     <tr>
@@ -67,26 +137,61 @@
     {% endif %}
     {% if perms.catalog.see_itmanagement and ITManagement %}
     <tr>
-      <td title = "Doble click para editar el nombre" class="fit success">
-        <a data-toggle="tooltip" title="Click para verlo en el navegador" downloadtarget="_blank" href="{{ ITManagement.projectsFile.url }}">{{ ITManagement.projectsName }} </a>
+      <td  class="fit success">
+        <a data-toggle="tooltip" target="_blank" href="{{ ITManagement.projectsFile.url }}">{{ ITManagement.projectsName }} </a>
       </td>
-      <td title = "Doble click para editar el nombre" class="fit myArrow"><span class='arrow' data-angle='90'></span></td>
-      <td title = "Doble click para editar el nombre" class="fit success"><a data-toggle="tooltip" title="Click para verlo en el navegador" downloadtarget="_blank" href="{{ ITManagement.businessProcessesFile.url }}">{{ ITManagement.businessProcessesName }}</a></td>
-      <td title = "Doble click para editar el nombre" class="fit myArrow" ><span class='arrow-inverse' data-angle='90'></span></td>
-      <td title = "Doble click para editar el nombre" class="fit success">
+      <td class="fit myArrow">
+        {% if ITManagement.arrow2Name %}
+        <p>{{ ITManagement.arrow2Name }}</p>
+        {% endif %}
+        <a data-toggle="tooltip"   target="_blank" {% if ITManagement.arrow2File %} href="{{ ITManagement.arrow2File.url }}" {% endif %}>
+          <span class='arrow' data-angle='90'></span>
+        </a>
+      </td>
+      <td  class="fit success"><a data-toggle="tooltip" target="_blank" href="{{ ITManagement.businessProcessesFile.url }}">{{ ITManagement.businessProcessesName }}</a></td>
+      <td  class="fit myArrow" >
+        {% if ITManagement.arrow4Name %}
+        <p>{{ ITManagement.arrow4Name }}</p>
+        {% endif %}
+        <a data-toggle="tooltip"   target="_blank" {% if ITManagement.arrow4File %} href="{{ ITManagement.arrow4File.url }}" {% endif %}>
+          <span class='arrow-inverse' data-angle='90'></span>
+        </a>
+      </td>
+      <td  class="fit success">
         {% if ITManagement.servicesFile %}
         <a  href="{{ ITManagement.servicesFile.url }}">{{ ITManagement.servicesName }}</a>
-            {% else %}
+        {% else %}
         <p>{{ ITManagement.servicesName }}</p>
         {% endif %}
-        </td>
+      </td>
     </tr>
     <tr class="onlyRow">
-      <td title = "Doble click para editar el nombre" class="fit myArrow"><span class='arrow-success-large' data-angle='180'></span></td>
-      <td title = "Doble click para editar el nombre" class="fit myArrow"></td>
-      <td title = "Doble click para editar el nombre" class="fit myArrow" ><span class='arrow-success-large'></span></td>
-      <td title = "Doble click para editar el nombre" class="fit myArrow"></td>
-      <td title = "Doble click para editar el nombre" class="fit myArrow"><span class='arrow-success-large'></span></td>
+      <td  class="fit myArrow">
+        {% if ITManagement.arrow1Name %}
+        <p>{{ ITManagement.arrow1Name }}</p>
+        {% endif %}
+        <a data-toggle="tooltip" target="_blank" {% if ITManagement.arrow1File %} href="{{ ITManagement.arrow1File.url }}" {% endif %}>
+          <span class='arrow-success-large' data-angle='180'></span>
+        </a>
+      </td>
+      <td  class="fit myArrow"></td>
+      <td  class="fit myArrow" >
+        {% if ITManagement.arrow3Name %}
+        <p>{{ ITManagement.arrow3Name }}</p>
+        {% endif %}
+        <a data-toggle="tooltip" target="_blank" {% if ITManagement.arrow3File %} href="{{ ITManagement.arrow3File.url }}" {% endif %}>
+          <span class='arrow-success-large'></span>
+        </a>
+      </td>
+      <td  class="fit myArrow"></td>
+      <td  class="fit myArrow">
+        {% if ITManagement.arrow5Name %}
+        <p>{{ ITManagement.arrow5Name }}</p>
+        {% endif %}
+        <a data-toggle="tooltip" target="_blank" {% if ITManagement.arrow5File %} href="{{ ITManagement.arrow5File.url }}" {% endif %}>
+          <span class='arrow-success-large'></span>
+        </a>
+      </td>
     </tr>
     {% else %}
     <tr>
@@ -95,17 +200,29 @@
     {% endif %}
     {% if perms.catalog.see_itoperation and ITOperation %}
     <tr>
-      <td title = "Doble click para editar el nombre" class="fit info">
-        <a data-toggle="tooltip" title="Click para verlo en el navegador" downloadtarget="_blank" href="{{ ITOperation.utilitiesFile.url }}">{{ ITOperation.utilitiesName }} </a>
+      <td  class="fit info">
+        <a data-toggle="tooltip"   target="_blank" href="{{ ITOperation.utilitiesFile.url }}">{{ ITOperation.utilitiesName }} </a>
       </td>
-      <td title = "Doble click para editar el nombre" class="fit myArrow">
-        <a data-toggle="tooltip" title="Click para verlo en el navegador" downloadtarget="_blank" href="{{ ITOperation.humanCapitalFile.url }}">
-        <span class='arrow' data-angle='90'></span>
-      </a>
+      <td  class="fit myArrow">
+        {% if ITOperation.arrow1Name %}
+        <p>{{ ITOperation.arrow1Name }}</p>
+        {% endif %}
+        <a data-toggle="tooltip"   target="_blank" {% if ITOperation.arrow1File %} href="{{ ITOperation.arrow1File.url }}" {% endif %}>
+          <span class='arrow' data-angle='90'></span>
+        </a>
       </td>
-      <td title = "Doble click para editar el nombre" class="fit info"><a data-toggle="tooltip" title="Click para verlo en el navegador" downloadtarget="_blank" href="{{ ITOperation.humanCapitalFile.url }}">{{ ITOperation.humanCapitalName }}</a></td>
-      <td title = "Doble click para editar el nombre" class="fit myArrow" ><span class='arrow-inverse' data-angle='90'></span></td>
-      <td title = "Doble click para editar el nombre" class="fit info"><a data-toggle="tooltip" title="Click para verlo en el navegador" downloadtarget="_blank" href="{{ ITOperation.assetsFile.url }}">Activ{{ ITOperation.assetsName }}</a></td>
+      <td  class="fit info"><a data-toggle="tooltip" target="_blank" href="{{ ITOperation.humanCapitalFile.url }}">{{ ITOperation.humanCapitalName }}</a></td>
+      <td  class="fit myArrow" >
+        {% if ITOperation.arrow2Name %}
+        <p>{{ ITOperation.arrow2Name }}</p>
+        {% endif %}
+        <a data-toggle="tooltip"   target="_blank" {% if ITOperation.arro2File %} href="{{ ITOperation.arro2File.url }}" {% endif %}>
+          <span class='arrow-inverse' data-angle='90'>
+
+          </span>
+        </a>
+      </td>
+      <td  class="fit info"><a data-toggle="tooltip"   target="_blank" href="{{ ITOperation.assetsFile.url }}">{{ ITOperation.assetsName }}</a></td>
     </tr>
     {% else %}
     <tr>
@@ -115,22 +232,5 @@
   </tbody>
 </table>
 
-
-
-
-
-
-<!-- ESTO ES PARA USAR LOS PERMISOS Y TAL -->
-<!-- {% if ITOperation %} -->
-
-    <!-- <span class='arrow'></span>
-    <ul>
-        <li><a href="{{ ITOperation.utilities.url }}">{{ ITOperation.utilities.name }}</a></li>
-        <li><a href="{{ ITOperation.humanCapital.url }}">{{ ITOperation.humanCapital.name }}</a></li>
-        <li><a download target="_blank" href="{{ ITOperation.assets.url }}">{{ ITOperation.assets.name }}</a></li>
-    </ul>
-{% else %}
-    <p>No documents.</p>
-{% endif %} -->
 
 {% endblock %}

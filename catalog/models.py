@@ -122,6 +122,10 @@ class Author(models.Model):
 import os
 class ITOperation(models.Model):
     """docstring for ITOperation."""
+    arrow1Name = models.CharField(max_length=100, blank=True)
+    arrow1File = models.FileField(upload_to='documents/%Y/%m/%d',blank=True)
+    arrow2Name = models.CharField(max_length=100, blank=True)
+    arrow2File = models.FileField(upload_to='documents/%Y/%m/%d',blank=True)
     utilitiesName = models.CharField(default='Utilidades',max_length=100)
     utilitiesFile = models.FileField(upload_to='documents/%Y/%m/%d')
     humanCapitalName = models.CharField(default='Personal',max_length=100)
@@ -149,6 +153,16 @@ class ITOperation(models.Model):
 
 class ITManagement(models.Model):
     """docstring for ITManagement."""
+    arrow1Name = models.CharField(max_length=100, blank=True)
+    arrow1File = models.FileField(upload_to='documents/%Y/%m/%d',blank=True)
+    arrow2Name = models.CharField(max_length=100, blank=True)
+    arrow2File = models.FileField(upload_to='documents/%Y/%m/%d',blank=True)
+    arrow3Name = models.CharField(max_length=100, blank=True)
+    arrow3File = models.FileField(upload_to='documents/%Y/%m/%d',blank=True)
+    arrow4Name = models.CharField(max_length=100, blank=True)
+    arrow4File = models.FileField(upload_to='documents/%Y/%m/%d',blank=True)
+    arrow5Name = models.CharField(max_length=100, blank=True)
+    arrow5File = models.FileField(upload_to='documents/%Y/%m/%d',blank=True)
     projectsName = models.CharField(default='Proyectos',max_length=100)
     projectsFile = models.FileField(upload_to='documents/%Y/%m/%d')
     businessProcessesName = models.CharField(default='Procesos de negocio',max_length=100)
@@ -174,6 +188,16 @@ class ITManagement(models.Model):
 
 class ITGovernance(models.Model):
     """docstring for ITGovernance."""
+    arrow1Name = models.CharField(max_length=100, blank=True)
+    arrow1File = models.FileField(upload_to='documents/%Y/%m/%d',blank=True)
+    arrow2Name = models.CharField(max_length=100, blank=True)
+    arrow2File = models.FileField(upload_to='documents/%Y/%m/%d',blank=True)
+    arrow3Name = models.CharField(max_length=100, blank=True)
+    arrow3File = models.FileField(upload_to='documents/%Y/%m/%d',blank=True)
+    arrow4Name = models.CharField(max_length=100, blank=True)
+    arrow4File = models.FileField(upload_to='documents/%Y/%m/%d',blank=True)
+    arrow5Name = models.CharField(max_length=100, blank=True)
+    arrow5File = models.FileField(upload_to='documents/%Y/%m/%d',blank=True)
     directionName = models.CharField(default='Dirección',max_length=100)
     directionFile = models.FileField(upload_to='documents/%Y/%m/%d')
     evaluationName = models.CharField(default='Evaluación',max_length=100)
@@ -201,6 +225,16 @@ class ITGovernance(models.Model):
 
 class CorpGovernance(models.Model):
     """docstring for CorpGovernance."""
+    arrow1Name = models.CharField(max_length=100, blank=True)
+    arrow1File = models.FileField(upload_to='documents/%Y/%m/%d',blank=True)
+    arrow2Name = models.CharField(max_length=100, blank=True)
+    arrow2File = models.FileField(upload_to='documents/%Y/%m/%d',blank=True)
+    arrow3Name = models.CharField(max_length=100, blank=True)
+    arrow3File = models.FileField(upload_to='documents/%Y/%m/%d',blank=True)
+    arrow4Name = models.CharField(max_length=100, blank=True)
+    arrow4File = models.FileField(upload_to='documents/%Y/%m/%d',blank=True)
+    arrow5Name = models.CharField(max_length=100, blank=True)
+    arrow5File = models.FileField(upload_to='documents/%Y/%m/%d',blank=True)
     structuresName = models.CharField(max_length=100)
     structuresFile = models.FileField(upload_to='documents/%Y/%m/%d')
     applicationsName = models.CharField(default='Aplicaciones',max_length=100)
