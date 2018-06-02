@@ -32,6 +32,10 @@
       <td title = "Doble click para editar el nombre" class="fit myArrow"></td>
       <td title = "Doble click para editar el nombre" class="fit myArrow"><span class='arrow-danger-large'></span></td>
     </tr>
+    {% else %}
+    <tr>
+      <td><span class="label label-warning">SIN PERMISOS PARA VER LA CAPA CORPORATIVA CONTACTE CON EL ADMINISTRADOR DEL SITE</span></td>
+    </tr>
     {% endif %}
     {% if perms.catalog.see_itgovernance and ITGovernance %}
     <tr>
@@ -55,6 +59,10 @@
       <td title = "Doble click para editar el nombre" class="fit myArrow" ><span class='arrow-warning-large'></span></td>
       <td title = "Doble click para editar el nombre" class="fit myArrow"></td>
       <td title = "Doble click para editar el nombre" class="fit myArrow"><span class='arrow-warning-large'></span></td>
+    </tr>
+    {% else %}
+    <tr>
+      <td><span class="label label-warning">SIN PERMISOS PARA VER LA CAPA DE GOBERNANZA CONTACTE CON EL ADMINISTRADOR DEL SITE</span></td>
     </tr>
     {% endif %}
     {% if perms.catalog.see_itmanagement and ITManagement %}
@@ -80,6 +88,10 @@
       <td title = "Doble click para editar el nombre" class="fit myArrow"></td>
       <td title = "Doble click para editar el nombre" class="fit myArrow"><span class='arrow-success-large'></span></td>
     </tr>
+    {% else %}
+    <tr>
+      <td><span class="label label-warning">SIN PERMISOS PARA VER LA CAPA DE GESTIÓN CONTACTE CON EL ADMINISTRADOR DEL SITE</span></td>
+    </tr>
     {% endif %}
     {% if perms.catalog.see_itoperation and ITOperation %}
     <tr>
@@ -94,6 +106,10 @@
       <td title = "Doble click para editar el nombre" class="fit info"><a data-toggle="tooltip" title="Click para verlo en el navegador" downloadtarget="_blank" href="{{ ITOperation.humanCapitalFile.url }}">{{ ITOperation.humanCapitalName }}</a></td>
       <td title = "Doble click para editar el nombre" class="fit myArrow" ><span class='arrow-inverse' data-angle='90'></span></td>
       <td title = "Doble click para editar el nombre" class="fit info"><a data-toggle="tooltip" title="Click para verlo en el navegador" downloadtarget="_blank" href="{{ ITOperation.assetsFile.url }}">Activ{{ ITOperation.assetsName }}</a></td>
+    </tr>
+    {% else %}
+    <tr>
+      <td><span class="label label-warning">SIN PERMISOS PARA VER LA CAPA DE OPERACIÓN CONTACTE CON EL ADMINISTRADOR DEL SITE</span></td>
     </tr>
     {% endif %}
   </tbody>

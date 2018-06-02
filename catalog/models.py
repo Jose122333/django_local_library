@@ -1,7 +1,7 @@
 from django.db import models
 from django.urls import reverse #Used to generate urls by reversing the URL patterns
 from django.contrib.auth.models import User
-
+from django.core.exceptions import ValidationError
 class Genre(models.Model):
     """
     Model representing a book genre (e.g. Science Fiction, Non Fiction).
@@ -133,6 +133,12 @@ class ITOperation(models.Model):
             permissions = (("see_itoperation", "Ver la capa de operación"),)
 
 
+    def save(self, *args, **kwargs):
+        if ITOperation.objects.exists() and not self.pk:
+        # if you'll not check for self.pk
+        # then error will also raised in update of exists model
+            raise ValidationError('There is can be only one ITOperation instance')
+        return super(ITOperation, self).save(*args, **kwargs)
 
     def __str__(self):
         """
@@ -153,6 +159,13 @@ class ITManagement(models.Model):
     class Meta:
             permissions = (("see_itmanagement", "Ver la capa de gestión"),)
 
+    def save(self, *args, **kwargs):
+        if ITManagement.objects.exists() and not self.pk:
+        # if you'll not check for self.pk
+        # then error will also raised in update of exists model
+            raise ValidationError('There is can be only one ITManagement instance')
+        return super(ITManagement, self).save(*args, **kwargs)
+
     def __str__(self):
         """
         String for representing the Model object (in Admin site etc.)
@@ -171,6 +184,15 @@ class ITGovernance(models.Model):
     class Meta:
             permissions = (("see_itgovernance", "Ver la capa de governanza"),)
 
+
+
+    def save(self, *args, **kwargs):
+        if ITGovernance.objects.exists() and not self.pk:
+        # if you'll not check for self.pk
+        # then error will also raised in update of exists model
+            raise ValidationError('There is can be only one ITGovernance instance')
+        return super(ITGovernance, self).save(*args, **kwargs)
+
     def __str__(self):
         """
         String for representing the Model object (in Admin site etc.)
@@ -187,6 +209,14 @@ class CorpGovernance(models.Model):
     valueName = models.CharField(default='Valor',max_length=100)
     class Meta:
             permissions = (("see_corpgovernance", "Ver la capa de el gobierno corporativo"),)
+
+
+    def save(self, *args, **kwargs):
+        if CorpGovernance.objects.exists() and not self.pk:
+        # if you'll not check for self.pk
+        # then error will also raised in update of exists model
+            raise ValidationError('There is can be only one CorpGovernance instance')
+        return super(CorpGovernance, self).save(*args, **kwargs)
 
     def __str__(self):
         """
