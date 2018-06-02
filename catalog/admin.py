@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Author, Genre, Book, BookInstance, ITOperation, ITManagement, ITGovernance
+from .models import Author, Genre, Book, BookInstance, ITOperation, ITManagement, ITGovernance,CorpGovernance
 
 #admin.site.register(Book)
 #admin.site.register(BookInstance)
@@ -8,6 +8,7 @@ admin.site.register(Genre)
 admin.site.register(ITOperation)
 admin.site.register(ITManagement)
 admin.site.register(ITGovernance)
+admin.site.register(CorpGovernance)
 
 
 # Define the admin class

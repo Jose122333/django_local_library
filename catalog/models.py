@@ -122,12 +122,17 @@ class Author(models.Model):
 import os
 class ITOperation(models.Model):
     """docstring for ITOperation."""
-    utilities = models.FileField(upload_to='documents/%Y/%m/%d')
-    humanCapital = models.FileField(upload_to='documents/%Y/%m/%d')
-    assets = models.FileField(upload_to='documents/%Y/%m/%d')
+    utilitiesName = models.CharField(default='Utilidades',max_length=100)
+    utilitiesFile = models.FileField(upload_to='documents/%Y/%m/%d')
+    humanCapitalName = models.CharField(default='Personal',max_length=100)
+    humanCapitalFile = models.FileField(upload_to='documents/%Y/%m/%d')
+    assetsName = models.CharField(default='Activos',max_length=100)
+    assetsFile = models.FileField(upload_to='documents/%Y/%m/%d')
 
     class Meta:
             permissions = (("see_itoperation", "Ver la capa de operación"),)
+
+
 
     def __str__(self):
         """
@@ -138,9 +143,12 @@ class ITOperation(models.Model):
 
 class ITManagement(models.Model):
     """docstring for ITManagement."""
-    projects = models.FileField(upload_to='documents/%Y/%m/%d')
-    businessProcesses = models.FileField(upload_to='documents/%Y/%m/%d')
-    services = models.FileField(upload_to='documents/%Y/%m/%d', blank=True)
+    projectsName = models.CharField(default='Proyectos',max_length=100)
+    projectsFile = models.FileField(upload_to='documents/%Y/%m/%d')
+    businessProcessesName = models.CharField(default='Procesos de negocio',max_length=100)
+    businessProcessesFile = models.FileField(upload_to='documents/%Y/%m/%d')
+    servicesName = models.CharField(default='Servicios',max_length=100)
+    servicesFile = models.FileField(upload_to='documents/%Y/%m/%d', blank=True)
 
     class Meta:
             permissions = (("see_itmanagement", "Ver la capa de gestión"),)
@@ -153,9 +161,12 @@ class ITManagement(models.Model):
 
 class ITGovernance(models.Model):
     """docstring for ITGovernance."""
-    direction = models.FileField(upload_to='documents/%Y/%m/%d')
-    evaluation = models.FileField(upload_to='documents/%Y/%m/%d')
-    monitorization = models.FileField(upload_to='documents/%Y/%m/%d', blank=True)
+    directionName = models.CharField(default='Dirección',max_length=100)
+    directionFile = models.FileField(upload_to='documents/%Y/%m/%d')
+    evaluationName = models.CharField(default='Evaluación',max_length=100)
+    evaluationFile = models.FileField(upload_to='documents/%Y/%m/%d')
+    monitorizationName = models.CharField(default='Monitorización',max_length=100)
+    monitorizationFile = models.FileField(upload_to='documents/%Y/%m/%d', blank=True)
 
     class Meta:
             permissions = (("see_itgovernance", "Ver la capa de governanza"),)
@@ -166,6 +177,22 @@ class ITGovernance(models.Model):
         """
         return 'ITGovernance'
 
+class CorpGovernance(models.Model):
+    """docstring for CorpGovernance."""
+    structuresName = models.CharField(max_length=100)
+    structuresFile = models.FileField(upload_to='documents/%Y/%m/%d')
+    applicationsName = models.CharField(default='Aplicaciones',max_length=100)
+    applicationsFile = models.FileField(upload_to='documents/%Y/%m/%d')
+    valueFile = models.FileField(upload_to='documents/%Y/%m/%d', blank=True)
+    valueName = models.CharField(default='Valor',max_length=100)
+    class Meta:
+            permissions = (("see_corpgovernance", "Ver la capa de el gobierno corporativo"),)
+
+    def __str__(self):
+        """
+        String for representing the Model object (in Admin site etc.)
+        """
+        return 'CorpGovernance'
 
 
 

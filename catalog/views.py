@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Book, Author, BookInstance, Genre, ITOperation, ITManagement,ITGovernance, Document
+from .models import Book, Author, BookInstance, Genre, ITOperation, ITManagement,ITGovernance, Document,CorpGovernance
 from django.contrib.auth.decorators import login_required
 
 from .forms import DocumentForm
@@ -36,6 +36,7 @@ def dFogIT(request):
     ops = ITOperation.objects.all()[0]
     manag = ITManagement.objects.all()[0]
     gov = ITGovernance.objects.all()[0]
+    corp = CorpGovernance.objects.all()[0]
 
 
     # Render list page with the documents and the form
@@ -44,7 +45,8 @@ def dFogIT(request):
         'catalog/dfogit.html',
         context={'ITOperation':ops,
                 'ITManagement':manag,
-                'ITGovernance':gov}
+                'ITGovernance':gov,
+                'CorpGovernance':corp}
             )
 
 
